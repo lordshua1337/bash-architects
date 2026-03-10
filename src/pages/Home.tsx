@@ -98,10 +98,10 @@ function RadialBurst() {
         inset: 0,
         background: `repeating-conic-gradient(
           from 0deg,
-          transparent 0deg 4deg,
-          #C9978A 4deg 5deg
+          transparent 0deg 4.5deg,
+          #C9978A 4.5deg 5deg
         )`,
-        opacity: 0.3,
+        opacity: 0.25,
         borderRadius: '50%',
         mask: 'radial-gradient(circle, transparent 3%, black 4%)',
         WebkitMask: 'radial-gradient(circle, transparent 3%, black 4%)',
