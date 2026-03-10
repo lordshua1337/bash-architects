@@ -10,8 +10,12 @@
 }
 
 @theme inline {
-  --color-background: var(--bg);
-  --color-foreground: var(--text);
+  --color-bg: var(--bg);
+  --color-bg-dark: var(--bg-dark);
+  --color-accent: var(--accent);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
 }
 
 * {
@@ -54,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-/* PLATFORM CARDS -- hover: fill orange bg, text white */
+/* PLATFORM CARDS */
 .platform-card {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
@@ -64,22 +68,19 @@ h1, h2, h3, h4, h5, h6 {
   aspect-ratio: 1;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .platform-card span {
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   color: rgba(255,255,255,0.6);
 }
-
 .platform-card:hover {
   border-color: var(--accent);
   background: var(--accent);
 }
-
 .platform-card:hover span {
   color: white;
 }
 
-/* SERVICE CARDS -- hover: bg orange, all text white, icon box white, corner bracket white */
+/* SERVICE CARDS */
 .service-card {
   position: relative;
   background: var(--bg);
@@ -87,12 +88,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 48px;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .service-card:hover {
   background: var(--accent);
   color: white;
 }
-
 .service-card::before {
   content: '';
   position: absolute;
@@ -104,31 +103,26 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 2px solid var(--border);
   transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .service-card:hover::before {
   border-color: white;
 }
-
 .service-card .icon-box {
   transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .service-card:hover .icon-box {
   background: white;
 }
-
 .service-card:hover h3,
 .service-card:hover p,
 .service-card:hover li,
 .service-card:hover .learn-more {
   color: white;
 }
-
 .service-card:hover .bullet-dot {
   color: white !important;
 }
 
-/* REASON CARDS -- hover: bg orange, border orange, text white */
+/* REASON CARDS */
 .reason-card {
   position: relative;
   background: white;
@@ -137,17 +131,14 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .reason-card:hover {
   background: var(--accent);
   border-color: var(--accent);
 }
-
 .reason-card:hover h3,
 .reason-card:hover p {
   color: white;
 }
-
 .reason-number {
   position: absolute;
   top: 10px;
@@ -159,12 +150,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .reason-card:hover .reason-number {
   color: rgba(255,255,255,0.2);
 }
 
-/* CASE CARDS -- hover: shadow, title turns orange */
+/* CASE CARDS */
 .case-card {
   background: white;
   border: 2px solid var(--border);
@@ -175,11 +165,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 32px;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .case-card:hover {
   box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
-
 .case-card:hover .case-title {
   color: var(--accent);
 }
@@ -190,7 +178,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 32px;
   position: relative;
 }
-
 .quote-mark {
   position: absolute;
   top: 16px;
@@ -215,7 +202,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 4px solid white;
   padding: 32px;
 }
-
 .tech-dot {
   width: 8px;
   height: 8px;
@@ -224,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
-/* BUTTONS -- primary hover: bg black. secondary hover: bg orange */
+/* BUTTONS */
 .btn-primary {
   font-family: Impact, "Arial Black", sans-serif;
   font-weight: 700;
@@ -242,7 +228,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   text-decoration: none;
 }
-
 .btn-primary:hover {
   background: black;
 }
@@ -264,12 +249,10 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   text-decoration: none;
 }
-
 .btn-secondary:hover {
   background: var(--accent);
 }
 
-/* SUBSCRIBE BUTTON -- hover: bg white, text black */
 .btn-subscribe {
   font-family: Impact, "Arial Black", sans-serif;
   font-weight: 700;
@@ -286,10 +269,32 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
 }
-
 .btn-subscribe:hover {
   background: white;
   color: black;
+}
+
+.btn-outline-white {
+  font-family: Impact, "Arial Black", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-size: 16px;
+  background: white;
+  color: black;
+  padding: 20px 40px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-outline-white:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
 .icon-box {
@@ -313,12 +318,11 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   width: 100%;
 }
-
 .newsletter-input::placeholder {
   color: var(--text-muted);
 }
 
-/* LEARN MORE -- hover: gap widens */
+/* LEARN MORE */
 .learn-more {
   font-family: Impact, "Arial Black", sans-serif;
   font-weight: 700;
@@ -332,12 +336,11 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .learn-more:hover {
   gap: 12px;
 }
 
-/* READ MORE (case studies) -- hover: text turns orange */
+/* READ MORE */
 .read-more {
   display: flex;
   align-items: center;
@@ -346,12 +349,11 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .read-more:hover {
   color: var(--accent);
 }
 
-/* FAQ -- hover: bg orange, text white */
+/* FAQ */
 .faq-button {
   width: 100%;
   padding: 32px;
@@ -364,33 +366,29 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .faq-button:hover {
   background: var(--accent);
   color: white;
 }
-
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
-
 .faq-answer.open {
   max-height: 500px;
 }
 
-/* NAV LINKS -- hover: text turns orange */
+/* NAV LINKS */
 .nav-link {
   text-decoration: none;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .nav-link:hover {
   color: var(--accent) !important;
 }
 
-/* FOOTER LINKS -- hover: text turns orange */
+/* FOOTER LINKS */
 .footer-link {
   display: block;
   font-size: 16px;
@@ -399,12 +397,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .footer-link:hover {
   color: var(--accent);
 }
 
-/* FOOTER SOCIAL -- hover: bg orange */
+/* FOOTER SOCIAL */
 .social-icon {
   width: 36px;
   height: 36px;
@@ -416,7 +413,6 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .social-icon:hover {
   background: var(--accent);
 }
@@ -428,14 +424,67 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .footer-bottom-link:hover {
   color: var(--accent);
 }
 
-/* CHAT FAB -- hover: bg black */
+/* CHAT FAB */
 .chat-fab:hover {
   background: black !important;
+}
+
+/* VALUES CARD */
+.values-card {
+  background: white;
+  border: 2px solid var(--border);
+  padding: 40px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.values-card:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.values-card:hover h3,
+.values-card:hover p {
+  color: white;
+}
+
+/* BLOG CARD */
+.blog-card {
+  background: white;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blog-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+/* CONTACT FORM */
+.form-input {
+  font-family: "Courier New", Courier, Monaco, Consolas, monospace;
+  font-size: 16px;
+  padding: 16px 20px;
+  border: 2px solid var(--border);
+  background: white;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-input:focus {
+  border-color: var(--accent);
+}
+
+/* SERVICE PAGE CARDS */
+.service-page-card {
+  background: white;
+  border: 2px solid var(--border);
+  padding: 48px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-page-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
 
 @media (max-width: 768px) {
