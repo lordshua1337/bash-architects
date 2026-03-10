@@ -94,10 +94,10 @@ function RadialBurst() {
       <svg viewBox="0 0 400 400" style={{ width: '100%', height: '100%' }}>
         <defs>
           <radialGradient id="orbGlow">
-            <stop offset="0%" stopColor="#D4917A" stopOpacity="0.9" />
-            <stop offset="30%" stopColor="#C9978A" stopOpacity="0.5" />
-            <stop offset="70%" stopColor="#C9978A" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#C9978A" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FF5733" stopOpacity="1" />
+            <stop offset="30%" stopColor="#FF5733" stopOpacity="0.6" />
+            <stop offset="60%" stopColor="#FF5733" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#FF5733" stopOpacity="0" />
           </radialGradient>
         </defs>
         {Array.from({ length: 64 }).map((_, i) => {
@@ -116,8 +116,8 @@ function RadialBurst() {
             />
           )
         })}
-        <circle cx="200" cy="200" r="20" fill="url(#orbGlow)" />
-        <circle cx="200" cy="200" r="5" fill="#D4917A" opacity="0.8" />
+        <circle cx="200" cy="200" r="24" fill="url(#orbGlow)" />
+        <circle cx="200" cy="200" r="6" fill="#FF5733" opacity="0.9" />
       </svg>
     </div>
   )
