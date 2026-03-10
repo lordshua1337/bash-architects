@@ -82,43 +82,44 @@ const FAQS = [
 ]
 
 function RadialBurst() {
+  const lines = []
+  const cx = 300
+  const cy = 300
+  const innerR = 12
+  const outerR = 290
+  const count = 72
+  for (let i = 0; i < count; i++) {
+    const angle = (i * 360) / count
+    const rad = (angle * Math.PI) / 180
+    const x1 = cx + Math.cos(rad) * innerR
+    const y1 = cy + Math.sin(rad) * innerR
+    const x2 = cx + Math.cos(rad) * outerR
+    const y2 = cy + Math.sin(rad) * outerR
+    lines.push(
+      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#C4917A" strokeWidth="0.8" opacity="0.45" />
+    )
+  }
   return (
-    <div style={{
+    <svg viewBox="0 0 600 600" width="600" height="600" style={{
       position: 'absolute',
-      top: '40%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 550,
-      height: 550,
+      top: '35%',
+      right: '5%',
+      transform: 'translateY(-50%)',
       pointerEvents: 'none',
     }}>
-      {/* Conic gradient burst -- fewer lines, more spacing */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: `repeating-conic-gradient(
-          from 0deg,
-          transparent 0deg 4.5deg,
-          #C9978A 4.5deg 5deg
-        )`,
-        opacity: 0.25,
-        borderRadius: '50%',
-        mask: 'radial-gradient(circle, transparent 3%, black 4%)',
-        WebkitMask: 'radial-gradient(circle, transparent 3%, black 4%)',
-      }} />
-      {/* Center dot */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 10,
-        height: 10,
-        borderRadius: '50%',
-        background: '#C9978A',
-        opacity: 0.7,
-      }} />
-    </div>
+      <g>{lines}</g>
+      {/* Glowing orb */}
+      <defs>
+        <radialGradient id="orbGlow">
+          <stop offset="0%" stopColor="#D4917A" stopOpacity="0.9" />
+          <stop offset="30%" stopColor="#C9978A" stopOpacity="0.5" />
+          <stop offset="70%" stopColor="#C9978A" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#C9978A" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx={cx} cy={cy} r="18" fill="url(#orbGlow)" />
+      <circle cx={cx} cy={cy} r="5" fill="#D4917A" opacity="0.7" />
+    </svg>
   )
 }
 
