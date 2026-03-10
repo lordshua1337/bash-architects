@@ -83,19 +83,21 @@ const FAQS = [
 
 function RadialBurst() {
   const lines = []
-  for (let i = 0; i < 120; i++) {
-    const angle = i * 3
+  const cx = 250
+  const cy = 250
+  const radius = 240
+  for (let i = 0; i < 100; i++) {
+    const angle = i * 3.6
     const rad = (angle * Math.PI) / 180
-    const x2 = 500 + Math.cos(rad) * 480
-    const y2 = 500 + Math.sin(rad) * 480
-    lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.3" />)
+    const x2 = cx + Math.cos(rad) * radius
+    const y2 = cy + Math.sin(rad) * radius
+    lines.push(<line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.5" />)
   }
   return (
-    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.6 }}>
+    <svg viewBox="0 0 500 500" width="550" height="550" style={{ position: 'absolute', top: '50%', left: '55%', transform: 'translate(-50%, -50%)', opacity: 0.7, pointerEvents: 'none' }}>
       <g>{lines}</g>
-      {/* Tiny pinkish dot at center */}
-      <circle cx="500" cy="500" r="6" fill="#C9978A" opacity="0.7" />
-      <circle cx="500" cy="500" r="3" fill="#D4917A" opacity="0.9" />
+      <circle cx={cx} cy={cy} r="5" fill="#C9978A" opacity="0.6" />
+      <circle cx={cx} cy={cy} r="2.5" fill="#D4917A" opacity="0.8" />
     </svg>
   )
 }
