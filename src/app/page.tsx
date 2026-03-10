@@ -64,7 +64,7 @@ const CASE_STUDIES = [
 ]
 
 const TECH_STACKS = [
-  { title: 'APIs', items: ['REST', 'GraphQL', 'Webhooks', 'WebSockets', 'gRPC', 'OAuth 2.0'] },
+  { title: 'APIs & Integrations', items: ['REST', 'GraphQL', 'Webhooks', 'WebSockets', 'gRPC', 'OAuth 2.0'] },
   { title: 'Cloud', items: ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Heroku', 'Digital Ocean'] },
   { title: 'Databases', items: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'DynamoDB', 'Supabase'] },
   { title: 'Automation', items: ['Zapier', 'Make', 'n8n', 'Temporal', 'Airflow', 'Custom Scripts'] },
@@ -78,10 +78,11 @@ const TESTIMONIALS = [
 
 const FAQS = [
   { q: 'Do you only build, or do you also consult?', a: "Both. We architect the solution whether we build it or guide your team through implementation. You get the roadmap, documentation, and support either way." },
+  { q: 'What if we want to take development in-house?', a: "That\u2019s exactly what we prepare for. We document everything, train your team, and build systems designed to be maintained without us." },
   { q: 'How long does a typical project take?', a: "Discovery takes 1\u20132 weeks. Implementation varies from 4 weeks for focused integrations to 3\u20136 months for full platform architecture. We scope everything upfront." },
   { q: 'What industries do you work with?', a: "We work across fintech, e-commerce, SaaS, healthcare, and professional services. If your business runs on software and needs systems to talk to each other, we can help." },
   { q: 'Do you use specific technologies?', a: "We\u2019re platform agnostic. We use whatever technology best solves your problem\u2014whether that\u2019s established enterprise tools or cutting-edge frameworks." },
-  { q: 'What does "with or without us" mean?', a: "It means we design solutions your team can own. We can build and maintain it, or hand off the blueprint so your developers can implement it. No vendor lock-in, ever." },
+  { q: 'What does \u201cwith or without us\u201d mean?', a: "It means we design solutions your team can own. We can build and maintain it, or hand off the blueprint so your developers can implement it. No vendor lock-in, ever." },
 ]
 
 function Arrow() {
@@ -94,24 +95,24 @@ function Arrow() {
 
 function ServiceIcon({ type }: { readonly type: string }) {
   if (type === 'workflow') return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF5733" strokeWidth="1.5">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
       <path d="M14 7h3a2 2 0 0 1 2 2v3" /><path d="M7 14v3a2 2 0 0 0 2 2h3" />
     </svg>
   )
   if (type === 'api') return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF5733" strokeWidth="1.5">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="12" cy="12" r="3" /><path d="M12 3v6" /><path d="M12 15v6" /><path d="M3 12h6" /><path d="M15 12h6" />
     </svg>
   )
   if (type === 'integration') return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF5733" strokeWidth="1.5">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
     </svg>
   )
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF5733" strokeWidth="1.5">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
     </svg>
   )
@@ -120,14 +121,14 @@ function ServiceIcon({ type }: { readonly type: string }) {
 function RadialBurst() {
   const lines = Array.from({ length: 72 }, (_, i) => {
     const angle = (i * 5) * (Math.PI / 180)
-    const x2 = 350 + Math.cos(angle) * 340
-    const y2 = 350 + Math.sin(angle) * 340
-    return <line key={i} x1="350" y1="350" x2={x2} y2={y2} stroke="#C4A882" strokeWidth="0.8" opacity="0.5" />
+    const x2 = 400 + Math.cos(angle) * 390
+    const y2 = 400 + Math.sin(angle) * 390
+    return <line key={i} x1="400" y1="400" x2={x2} y2={y2} stroke="#C4A070" strokeWidth="1" opacity="0.6" />
   })
   return (
-    <svg viewBox="0 0 700 700" style={{ position: 'absolute', right: '-5%', top: '50%', transform: 'translateY(-50%)', width: 800, height: 800, opacity: 0.4 }}>
+    <svg viewBox="0 0 800 800" style={{ position: 'absolute', right: '-10%', top: '50%', transform: 'translateY(-50%)', width: 1000, height: 1000, opacity: 0.65 }}>
       {lines}
-      <circle cx="350" cy="350" r="5" fill="#C4A882" opacity="0.7" />
+      <circle cx="400" cy="400" r="4" fill="#B89860" opacity="0.8" />
     </svg>
   )
 }
@@ -139,27 +140,27 @@ export default function Home() {
   return (
     <>
       {/* NAV */}
-      <nav style={{ background: 'var(--bg)', borderBottom: '3px solid var(--accent)', position: 'sticky', top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
-          <h1 style={{ fontSize: 24, letterSpacing: '-0.6px' }}>BASH Architects</h1>
+      <nav style={{ background: 'var(--bg)', borderBottom: '2px solid var(--accent)', position: 'sticky', top: 0, zIndex: 100 }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <a href="#home" className="nav-link" style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 24, letterSpacing: '-0.6px', textTransform: 'uppercase', color: 'var(--text)' }}>BASH Architects</a>
           <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
             <div className="hidden md:flex" style={{ gap: 32 }}>
               {NAV_LINKS.map((link, i) => (
-                <a key={link} href={`#${link.toLowerCase()}`} style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', textDecoration: 'none', color: i === 0 ? 'var(--accent)' : 'var(--text)', transition: 'color 0.2s' }}>
+                <a key={link} href={`#${link.toLowerCase()}`} className="nav-link" style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: i === 0 ? 'var(--accent)' : 'var(--text)' }}>
                   {link}
                 </a>
               ))}
             </div>
-            <button className="btn-primary" style={{ padding: '12px 24px' }}>Let&apos;s Talk</button>
+            <a href="#contact" className="btn-primary" style={{ padding: '12px 24px' }}>Let&apos;s Talk</a>
             <button className="md:hidden" onClick={() => setMobileNav(!mobileNav)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
             </button>
           </div>
         </div>
         {mobileNav && (
-          <div className="md:hidden" style={{ padding: '0 40px 20px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div className="md:hidden" style={{ padding: '0 24px 20px', display: 'flex', flexDirection: 'column', gap: 16 }}>
             {NAV_LINKS.map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMobileNav(false)} style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', textDecoration: 'none', color: 'var(--text)' }}>
+              <a key={link} href={`#${link.toLowerCase()}`} className="nav-link" onClick={() => setMobileNav(false)} style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: 'var(--text)' }}>
                 {link}
               </a>
             ))}
@@ -168,10 +169,10 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section id="home" style={{ position: 'relative', overflow: 'hidden', padding: '80px 40px 100px', maxWidth: 1320, margin: '0 auto' }}>
+      <section id="home" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '80px 24px', background: 'var(--bg)' }}>
         <RadialBurst />
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1000 }}>
-          <div style={{ display: 'inline-block', background: 'var(--bg-dark)', padding: '12px 24px', marginBottom: 40 }}>
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, margin: '0 auto', width: '100%' }}>
+          <div style={{ display: 'inline-block', background: 'var(--bg-dark)', padding: '12px 24px', marginBottom: 32 }}>
             <span style={{ fontFamily: MONO, fontWeight: 400, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: 'white' }}>AI Strategy & Implementation</span>
           </div>
           <h1 style={{ fontSize: 'clamp(72px, 10vw, 140px)', lineHeight: '0.85', marginBottom: 40 }}>
@@ -183,26 +184,32 @@ export default function Home() {
             Not just building tools&#8202;&#8212;&#8202;architecting the workflows, APIs, and integrations that make your business run. With or without us.
           </p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <button className="btn-primary">Start a Conversation <Arrow /></button>
-            <button className="btn-secondary">See Our Services</button>
+            <a href="#contact" className="btn-primary">Start a Conversation <Arrow /></a>
+            <a href="#services" className="btn-secondary">See Our Services</a>
           </div>
         </div>
       </section>
 
-      {/* INTEGRATIONS + STATS */}
-      <section style={{ background: 'var(--bg-dark)', padding: '80px 40px' }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto' }}>
+      {/* INTEGRATIONS */}
+      <section style={{ background: 'var(--bg-dark)', padding: '80px 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <p style={{ textAlign: 'center', fontFamily: HEADING, fontWeight: 600, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: 'var(--accent)', marginBottom: 12 }}>Integrating With</p>
           <h2 style={{ textAlign: 'center', fontSize: 'clamp(28px, 3vw, 30px)', lineHeight: '36px', color: 'white', marginBottom: 48 }}>
             The Platforms You <span style={{ color: 'var(--accent)' }}>Already Use</span>
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12, maxWidth: 1100, margin: '0 auto 80px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12, maxWidth: 1100, margin: '0 auto' }}>
             {PLATFORMS.map(p => (
               <div key={p} className="platform-card">
-                <span style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', color: 'white' }}>{p}</span>
+                <span style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', textAlign: 'center', padding: '0 8px' }}>{p}</span>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section style={{ background: 'var(--bg-dark)', padding: '96px 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, textAlign: 'center' }}>
             {STATS.map(s => (
               <div key={s.label}>
@@ -215,37 +222,39 @@ export default function Home() {
       </section>
 
       {/* WHAT WE SOLVE */}
-      <section id="services" style={{ padding: '100px 40px', maxWidth: 1320, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 16 }}>What We Solve</h2>
-        <div className="divider" style={{ marginBottom: 24 }} />
-        <p style={{ maxWidth: 600, fontSize: 20, lineHeight: '28px', color: '#4A4540', marginBottom: 60 }}>
-          We don&apos;t just build&#8202;&#8212;&#8202;we architect the systems that power your business, whether we&apos;re the ones building it or not.
-        </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
-          {SERVICES.map(s => (
-            <div key={s.title} className="service-card">
-              <div className="icon-box" style={{ marginBottom: 24 }}>
-                <ServiceIcon type={s.icon} />
+      <section id="services" style={{ padding: '128px 24px', background: '#F8F6F1' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 16 }}>What We Solve</h2>
+          <div className="divider" style={{ marginBottom: 24 }} />
+          <p style={{ maxWidth: 600, fontSize: 20, lineHeight: '28px', color: '#4A4540', marginBottom: 60 }}>
+            We don&apos;t just build&#8202;&#8212;&#8202;we architect the systems that power your business, whether we&apos;re the ones building it or not.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+            {SERVICES.map(s => (
+              <div key={s.title} className="service-card">
+                <div className="icon-box" style={{ marginBottom: 24, color: '#FF5733' }}>
+                  <ServiceIcon type={s.icon} />
+                </div>
+                <h3 style={{ fontSize: 60, lineHeight: '60px', marginBottom: 20 }}>{s.title}</h3>
+                <p style={{ fontSize: 18, lineHeight: '29.25px', color: '#4A4540', marginBottom: 24 }}>{s.desc}</p>
+                <ul style={{ listStyle: 'none', marginBottom: 32 }}>
+                  {s.bullets.map(b => (
+                    <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, fontSize: 16 }}>
+                      <span className="bullet-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', flexShrink: 0, transition: 'background 0.15s' }} />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" className="learn-more">Learn More <Arrow /></a>
               </div>
-              <h3 style={{ fontSize: 60, lineHeight: '60px', marginBottom: 20 }}>{s.title}</h3>
-              <p style={{ fontSize: 18, lineHeight: '29.25px', color: '#4A4540', marginBottom: 24 }}>{s.desc}</p>
-              <ul style={{ listStyle: 'none', marginBottom: 32 }}>
-                {s.bullets.map(b => (
-                  <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, fontSize: 16 }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <a href="#contact" className="learn-more">Learn More <Arrow /></a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* OUR APPROACH */}
-      <section style={{ background: 'var(--accent)', padding: '100px 40px' }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto' }}>
+      <section style={{ background: 'var(--accent)', padding: '128px 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', color: 'white', marginBottom: 60 }}>Our Approach</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 40 }}>
             {STEPS.map(s => (
@@ -256,65 +265,65 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* QUOTE BLOCK */}
-      <section style={{ background: 'var(--bg-dark)', padding: '60px 40px' }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '50px', color: 'white', marginBottom: 16 }}>&ldquo;We Don&apos;t Disappear After the Proposal.&rdquo;</h2>
-          <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.7)', maxWidth: 640 }}>
-            Whether we&apos;re building it or guiding your team, we stay until your business is running on the solution we designed together.
-          </p>
+          <div style={{ marginTop: 96, padding: '48px', background: 'black' }}>
+            <h2 style={{ fontSize: 'clamp(30px, 3vw, 40px)', lineHeight: '50px', color: 'white', marginBottom: 16 }}>&ldquo;We don&apos;t disappear after the proposal.&rdquo;</h2>
+            <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.7)', maxWidth: 640 }}>
+              Whether we&apos;re building it or guiding your team, we stay until your business is running on the solution we designed together.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* WHY WORK WITH US */}
-      <section id="about" style={{ padding: '100px 40px', maxWidth: 1320, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 0 }}>Why Work</h2>
-        <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', color: 'var(--accent)', marginBottom: 16 }}>With Us</h2>
-        <div className="divider" style={{ marginBottom: 60 }} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
-          {REASONS.map(r => (
-            <div key={r.title} className="reason-card">
-              <span className="reason-number">{r.num}</span>
-              <h3 style={{ fontSize: 36, lineHeight: '40px', marginBottom: 16 }}>{r.title}</h3>
-              <p style={{ fontSize: 16, lineHeight: 1.7, color: '#4A4540' }}>{r.desc}</p>
-            </div>
-          ))}
+      <section id="about" style={{ padding: '128px 24px', background: 'var(--bg)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 0 }}>Why Work</h2>
+          <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', color: 'var(--accent)', marginBottom: 16 }}>With Us</h2>
+          <div className="divider" style={{ marginBottom: 60 }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+            {REASONS.map(r => (
+              <div key={r.title} className="reason-card">
+                <span className="reason-number">{r.num}</span>
+                <h3 style={{ fontSize: 36, lineHeight: '40px', marginBottom: 16, transition: 'color 0.15s' }}>{r.title}</h3>
+                <p style={{ fontSize: 18, lineHeight: 1.7, color: '#4A4540', transition: 'color 0.15s' }}>{r.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CASE STUDIES */}
-      <section style={{ padding: '100px 40px', maxWidth: 1320, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 16 }}>Case Studies</h2>
-        <div className="divider" style={{ marginBottom: 24 }} />
-        <p style={{ fontSize: 20, lineHeight: 1.7, color: '#4A4540', marginBottom: 60 }}>Real problems. Real solutions. Real results.</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          {CASE_STUDIES.map(c => (
-            <div key={c.title} className="case-card">
-              <div>
-                <h3 style={{ fontSize: 28, marginBottom: 16 }}>{c.title}</h3>
-                <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Challenge</p>
-                <p style={{ fontSize: 16, lineHeight: 1.6 }}>{c.challenge}</p>
+      <section style={{ padding: '128px 24px', background: 'white' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', marginBottom: 16 }}>Case Studies</h2>
+          <div className="divider" style={{ marginBottom: 24 }} />
+          <p style={{ fontSize: 20, lineHeight: 1.7, color: '#4A4540', marginBottom: 60 }}>Real problems. Real solutions. Real results.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            {CASE_STUDIES.map(c => (
+              <div key={c.title} className="case-card">
+                <div>
+                  <h3 className="case-title" style={{ fontSize: 28, marginBottom: 16, transition: 'color 0.15s' }}>{c.title}</h3>
+                  <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Challenge</p>
+                  <p style={{ fontSize: 16, lineHeight: 1.6 }}>{c.challenge}</p>
+                </div>
+                <div>
+                  <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Solution</p>
+                  <p style={{ fontSize: 16, lineHeight: 1.6 }}>{c.solution}</p>
+                </div>
+                <div>
+                  <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Result</p>
+                  <p style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent)', fontFamily: HEADING }}>{c.result}</p>
+                </div>
+                <a href="#contact" className="read-more" style={{ alignSelf: 'center' }}>Read More <Arrow /></a>
               </div>
-              <div>
-                <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Solution</p>
-                <p style={{ fontSize: 16, lineHeight: 1.6 }}>{c.solution}</p>
-              </div>
-              <div>
-                <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: 4 }}>Result</p>
-                <p style={{ fontSize: 18, fontWeight: 700, color: 'var(--accent)', fontFamily: HEADING }}>{c.result}</p>
-              </div>
-              <a href="#contact" className="learn-more" style={{ alignSelf: 'center' }}>Read More <Arrow /></a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* TECH STACK */}
-      <section style={{ background: 'var(--accent)', padding: '100px 40px' }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto', textAlign: 'center' }}>
+      <section style={{ background: 'var(--accent)', padding: '128px 24px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(56px, 7vw, 90px)', color: 'white', marginBottom: 16 }}>Tech Stack</h2>
           <div className="divider-white" style={{ marginBottom: 24 }} />
           <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.8)', marginBottom: 60 }}>
@@ -326,7 +335,7 @@ export default function Home() {
                 <h4 style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 20 }}>{col.title}</h4>
                 {col.items.map(item => (
                   <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-                    <span className="tech-dot" />
+                    <span style={{ color: 'var(--accent)', fontSize: 14 }}>{'\u25AA'}</span>
                     <span style={{ color: 'white', fontSize: 16 }}>{item}</span>
                   </div>
                 ))}
@@ -338,33 +347,35 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ padding: '100px 40px', maxWidth: 1320, margin: '0 auto', textAlign: 'center' }}>
-        <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: 'var(--accent)', marginBottom: 12 }}>Client Success Stories</p>
-        <h2 style={{ fontSize: 'clamp(48px, 5vw, 72px)', lineHeight: '64.8px', marginBottom: 8 }}>They Trusted Us.</h2>
-        <h2 style={{ fontSize: 'clamp(48px, 5vw, 72px)', lineHeight: '64.8px', color: 'var(--accent)', fontStyle: 'italic', marginBottom: 60 }}>You Can Too.</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, textAlign: 'left' }}>
-          {TESTIMONIALS.map(t => (
-            <div key={t.name} className="testimonial-card">
-              <span className="quote-mark">&ldquo;&rdquo;</span>
-              <p style={{ fontSize: 16, lineHeight: 1.7, color: '#4A4540', marginBottom: 24, position: 'relative', zIndex: 1 }}>&ldquo;{t.quote}&rdquo;</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{ width: 44, height: 44, borderRadius: '50%', background: '#D5CFC9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'var(--bg-dark)' }}>{t.name[0]}</span>
-                </div>
-                <div>
-                  <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{t.name}</div>
-                  <div style={{ fontSize: 14, color: 'var(--text-muted)' }}>{t.role}<br />{t.company}</div>
+      <section style={{ padding: '128px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <p style={{ fontFamily: HEADING, fontWeight: 600, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.35px', color: 'var(--accent)', marginBottom: 12 }}>Client Success Stories</p>
+          <h2 style={{ fontSize: 'clamp(48px, 5vw, 72px)', lineHeight: '64.8px', marginBottom: 8 }}>They Trusted Us.</h2>
+          <h2 style={{ fontSize: 'clamp(48px, 5vw, 72px)', lineHeight: '64.8px', color: 'var(--accent)', fontStyle: 'italic', marginBottom: 60 }}>You Can Too.</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, textAlign: 'left' }}>
+            {TESTIMONIALS.map(t => (
+              <div key={t.name} className="testimonial-card">
+                <span className="quote-mark">&ldquo;&rdquo;</span>
+                <p style={{ fontSize: 16, lineHeight: 1.7, color: '#4A4540', marginBottom: 24, position: 'relative', zIndex: 1 }}>&ldquo;{t.quote}&rdquo;</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: '50%', background: '#D5CFC9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'var(--bg-dark)' }}>{t.name[0]}</span>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{t.name}</div>
+                    <div style={{ fontSize: 14, color: 'var(--text-muted)' }}>{t.role}<br />{t.company}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p style={{ marginTop: 48, fontSize: 18, color: '#4A4540' }}>Ready to join our growing list of satisfied clients?</p>
+          <a href="#contact" className="btn-primary" style={{ marginTop: 20 }}>Start Your Project</a>
         </div>
-        <p style={{ marginTop: 48, fontSize: 18, color: '#4A4540' }}>Ready to join our growing list of satisfied clients?</p>
-        <button className="btn-primary" style={{ marginTop: 20, padding: '20px 40px', borderRadius: 4 }}>Start Your Project</button>
       </section>
 
       {/* NEWSLETTER */}
-      <section style={{ background: 'var(--bg-dark)', padding: '80px 40px', textAlign: 'center' }}>
+      <section style={{ background: 'var(--bg-dark)', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" style={{ marginBottom: 20 }}>
             <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -375,79 +386,71 @@ export default function Home() {
           <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>Weekly insights on workflow automation, API architecture, and integration strategy.</p>
           <div style={{ display: 'flex', gap: 0, maxWidth: 520, margin: '0 auto' }}>
             <input className="newsletter-input" placeholder="your@email.com" style={{ flex: 1 }} />
-            <button className="btn-primary" style={{ borderRadius: 0 }}>Subscribe</button>
+            <button className="btn-subscribe">Subscribe</button>
           </div>
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginTop: 12 }}>We respect your privacy. Unsubscribe at any time.</p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: '100px 40px', maxWidth: 900, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', textAlign: 'center', marginBottom: 60 }}>
-          Common <span style={{ color: 'var(--accent)', fontStyle: 'italic' }}>Questions</span>
-        </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {FAQS.map((faq, i) => (
-            <div key={faq.q} style={{ border: '2px solid var(--border)', background: 'white' }}>
-              <button
-                onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
-                style={{ width: '100%', padding: '24px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}
-              >
-                <span style={{ fontFamily: MONO, fontWeight: 500, fontSize: 16 }}>{faq.q}</span>
-                <span style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 24, flexShrink: 0, marginLeft: 16 }}>{openFaq === i ? '\u2212' : '+'}</span>
-              </button>
-              <div className={`faq-answer${openFaq === i ? ' open' : ''}`}>
-                <div style={{ padding: '0 32px 24px', borderTop: '1px solid #E5E1DC' }}>
-                  <p style={{ fontSize: 16, lineHeight: 1.7, color: '#4A4540', paddingTop: 20 }}>{faq.a}</p>
+      <section style={{ padding: '128px 24px' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(48px, 6vw, 72px)', textAlign: 'center', marginBottom: 60 }}>
+            Common <span style={{ color: 'var(--accent)', fontStyle: 'italic' }}>Questions</span>
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {FAQS.map((faq, i) => (
+              <div key={faq.q} style={{ border: '2px solid var(--border)', background: 'white' }}>
+                <button
+                  className="faq-button"
+                  onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
+                >
+                  <span style={{ fontFamily: MONO, fontWeight: 500, fontSize: 16 }}>{faq.q}</span>
+                  <span style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 24, flexShrink: 0, marginLeft: 16 }}>{openFaq === i ? '\u2212' : '+'}</span>
+                </button>
+                <div className={`faq-answer${openFaq === i ? ' open' : ''}`}>
+                  <div style={{ padding: '0 32px 32px', borderTop: '2px solid var(--border)' }}>
+                    <p style={{ fontSize: 16, lineHeight: 1.7, color: '#4A4540', paddingTop: 20 }}>{faq.a}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section id="contact" style={{ padding: '100px 40px', maxWidth: 1320, margin: '0 auto', textAlign: 'center', position: 'relative' }}>
-        <div style={{ position: 'absolute', left: 40, top: '50%', transform: 'translateY(-50%) rotate(-30deg)', opacity: 0.15 }}>
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="var(--border)" strokeWidth="2">
-            <line x1="0" y1="0" x2="120" y2="120" /><line x1="20" y1="0" x2="120" y2="100" /><line x1="40" y1="0" x2="120" y2="80" />
-          </svg>
-        </div>
-        <div style={{ borderTop: '2px solid var(--border)', marginBottom: 60 }} />
-        <h2 style={{ fontSize: 'clamp(60px, 7vw, 100px)', lineHeight: '90px', marginBottom: 8 }}>Let&apos;s Figure It</h2>
-        <h2 style={{ fontSize: 'clamp(60px, 7vw, 100px)', lineHeight: '90px', color: 'var(--accent)', marginBottom: 16 }}>Out Together</h2>
-        <div className="divider" style={{ margin: '0 auto 32px' }} />
-        <p style={{ fontSize: 18, lineHeight: 1.7, color: '#4A4540', maxWidth: 520, margin: '0 auto 40px' }}>
-          You have an idea, a problem, or a vision. We&apos;ll work with you to architect the technical solution&#8202;&#8212;&#8202;and make sure your business can run on it.
-        </p>
-        <button className="btn-primary" style={{ padding: '20px 40px', borderRadius: 4, fontSize: 20, letterSpacing: '0.5px' }}>Get in Touch &rarr;</button>
-        <div style={{ borderTop: '1px solid #D5CFC9', margin: '60px auto 0', maxWidth: 800 }} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, maxWidth: 800, margin: '48px auto 0' }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 'clamp(48px, 5vw, 64px)', color: 'var(--accent)' }}>100%</div>
-            <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase' }}>Client Satisfaction</div>
+      <section id="contact" style={{ padding: '128px 24px', background: 'var(--bg)', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <h2 style={{ fontSize: 'clamp(60px, 7vw, 100px)', lineHeight: '90px', marginBottom: 8 }}>Let&apos;s Figure It</h2>
+          <h2 style={{ fontSize: 'clamp(60px, 7vw, 100px)', lineHeight: '90px', color: 'var(--accent)', marginBottom: 16 }}>Out Together</h2>
+          <div className="divider" style={{ margin: '0 auto 32px' }} />
+          <p style={{ fontSize: 18, lineHeight: 1.7, color: '#4A4540', maxWidth: 520, margin: '0 auto 40px' }}>
+            You have an idea, a problem, or a vision. We&apos;ll work with you to architect the technical solution&#8202;&#8212;&#8202;and make sure your business can run on it.
+          </p>
+          <button className="btn-primary" style={{ fontSize: 20, letterSpacing: '0.5px', padding: '20px 48px' }}>Get in Touch &rarr;</button>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, maxWidth: 800, margin: '96px auto 0', paddingTop: 96, borderTop: '2px solid var(--border)' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 'clamp(48px, 5vw, 64px)', color: 'var(--accent)' }}>100%</div>
+              <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase' }}>Client Satisfaction</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 'clamp(48px, 5vw, 64px)', color: 'var(--accent)' }}>50+</div>
+              <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase' }}>Businesses Transformed</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <svg width="48" height="28" viewBox="0 0 48 28" fill="none" stroke="var(--accent)" strokeWidth="2.5" style={{ margin: '0 auto 4px' }}>
+                <circle cx="16" cy="14" r="10" /><circle cx="32" cy="14" r="10" />
+              </svg>
+              <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', marginTop: 8 }}>Ways to Bring It to Life</div>
+            </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 'clamp(48px, 5vw, 64px)', color: 'var(--accent)' }}>50+</div>
-            <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase' }}>Businesses Transformed</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <svg width="48" height="28" viewBox="0 0 48 28" fill="none" stroke="var(--accent)" strokeWidth="2.5" style={{ margin: '0 auto 4px' }}>
-              <circle cx="16" cy="14" r="10" /><circle cx="32" cy="14" r="10" />
-            </svg>
-            <div style={{ fontFamily: HEADING, fontWeight: 700, fontSize: 14, textTransform: 'uppercase', marginTop: 8 }}>Ways to Bring It to Life</div>
-          </div>
-        </div>
-        <div style={{ position: 'absolute', right: 40, bottom: 40, transform: 'rotate(30deg)', opacity: 0.15 }}>
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="var(--border)" strokeWidth="2">
-            <line x1="0" y1="0" x2="120" y2="120" /><line x1="0" y1="20" x2="100" y2="120" /><line x1="0" y1="40" x2="80" y2="120" />
-          </svg>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: 'var(--bg-dark)', padding: '80px 40px 40px', borderTop: '2px solid var(--accent)' }}>
-        <div style={{ maxWidth: 1320, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 48, marginBottom: 60 }}>
+      <footer style={{ background: 'var(--bg-dark)', padding: '80px 24px 40px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 48, marginBottom: 60 }}>
           <div>
             <h3 style={{ fontSize: 20, color: 'var(--accent)', marginBottom: 16 }}>BASH Architects</h3>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)' }}>Architecting the workflows, APIs, and integrations that make your business run.</p>
@@ -455,35 +458,35 @@ export default function Home() {
           <div>
             <h4 style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'white', marginBottom: 16, textTransform: 'uppercase' }}>Navigate</h4>
             {['Home', 'About', 'Services', 'FAQ', 'Blog', 'Contact'].map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} style={{ display: 'block', fontSize: 14, color: 'rgba(255,255,255,0.5)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{link}</a>
+              <a key={link} href={`#${link.toLowerCase()}`} className="footer-link">{link}</a>
             ))}
           </div>
           <div>
             <h4 style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'white', marginBottom: 16, textTransform: 'uppercase' }}>Services</h4>
             {['Workflows', 'APIs', 'Integrations', 'Product Function'].map(link => (
-              <a key={link} href="#services" style={{ display: 'block', fontSize: 14, color: 'rgba(255,255,255,0.5)', textDecoration: 'none', marginBottom: 10 }}>{link}</a>
+              <a key={link} href="#services" className="footer-link">{link}</a>
             ))}
           </div>
           <div>
             <h4 style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'white', marginBottom: 16, textTransform: 'uppercase' }}>Connect</h4>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-              <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>hello@aiarchitects.com</span>
-            </div>
-            <div style={{ display: 'flex', gap: 12 }}>
+            <a href="mailto:hello@aiarchitects.com" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+              hello@aiarchitects.com
+            </a>
+            <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
               {['in', 'tw', 'gh'].map(icon => (
-                <div key={icon} style={{ width: 36, height: 36, borderRadius: 6, background: '#2A2A2A', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                <a key={icon} href="#" className="social-icon">
                   <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>{icon}</span>
-                </div>
+                </a>
               ))}
             </div>
           </div>
         </div>
-        <div style={{ borderTop: '1px solid #333', paddingTop: 24, maxWidth: 1320, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
-          <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>2026 BASH Architects. All rights reserved.</span>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: 32, maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+          <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>&copy; 2026 BASH Architects. All rights reserved.</span>
           <div style={{ display: 'flex', gap: 24 }}>
-            <a href="#" style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</a>
-            <a href="#" style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Terms of Service</a>
+            <a href="#" className="footer-bottom-link">Privacy Policy</a>
+            <a href="#" className="footer-bottom-link">Terms of Service</a>
           </div>
         </div>
       </footer>
