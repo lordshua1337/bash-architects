@@ -83,16 +83,26 @@ const FAQS = [
 
 function RadialBurst() {
   const lines = []
-  for (let i = 0; i < 72; i++) {
-    const angle = i * 5
+  for (let i = 0; i < 90; i++) {
+    const angle = i * 4
     const rad = (angle * Math.PI) / 180
     const x2 = 500 + Math.cos(rad) * 500
     const y2 = 500 + Math.sin(rad) * 500
-    lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#C4A070" strokeWidth="1" />)
+    lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#D4917A" strokeWidth="0.5" />)
   }
   return (
-    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.65 }}>
-      <g opacity="0.6">{lines}</g>
+    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.5 }}>
+      <g opacity="0.5">{lines}</g>
+      {/* Bright orange orb at center */}
+      <defs>
+        <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+          <stop offset="40%" stopColor="var(--accent)" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx="500" cy="500" r="40" fill="var(--accent)" opacity="0.85" />
+      <circle cx="500" cy="500" r="80" fill="url(#orbGlow)" />
     </svg>
   )
 }
@@ -105,11 +115,11 @@ export default function Home() {
       <Helmet><title>BASH Architects | We'll Figure Out How to Bring It to Life</title></Helmet>
 
       {/* HERO */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '128px 24px 128px 64px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '128px 24px 128px 80px' }}>
         <RadialBurst />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, width: '100%' }}>
-          <div style={{ display: 'inline-block', background: 'var(--bg-dark)', padding: '12px 24px', marginBottom: 32 }}>
-            <p style={{ fontFamily: MONO, fontSize: 14, textTransform: 'uppercase', letterSpacing: 2, color: 'white', margin: 0 }}>AI STRATEGY & IMPLEMENTATION</p>
+          <div style={{ display: 'inline-block', background: 'var(--bg-dark)', padding: '14px 28px', marginBottom: 32 }}>
+            <p style={{ fontFamily: MONO, fontSize: 16, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 3, color: 'white', margin: 0 }}>AI STRATEGY & IMPLEMENTATION</p>
           </div>
           <h1 style={{ fontFamily: HEADING, fontSize: 'clamp(72px, 12vw, 160px)', lineHeight: 0.85, marginBottom: 48 }}>
             WE'LL FIGURE<br />OUT HOW TO<br /><span style={{ color: 'var(--accent)' }}>BRING IT TO LIFE</span>
