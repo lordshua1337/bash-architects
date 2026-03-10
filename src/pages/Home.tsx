@@ -94,7 +94,7 @@ function RadialBurst() {
     lines.push(<line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.5" />)
   }
   return (
-    <svg viewBox="0 0 500 500" width="650" height="650" style={{ position: 'absolute', top: '42%', left: '52%', transform: 'translate(-50%, -50%)', opacity: 0.7, pointerEvents: 'none' }}>
+    <svg viewBox="0 0 500 500" width="700" height="700" style={{ position: 'absolute', top: '40%', left: '45%', transform: 'translate(-50%, -50%)', opacity: 0.65, pointerEvents: 'none' }}>
       <g>{lines}</g>
       <circle cx={cx} cy={cy} r="5" fill="#C9978A" opacity="0.6" />
       <circle cx={cx} cy={cy} r="2.5" fill="#D4917A" opacity="0.8" />
