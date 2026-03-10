@@ -85,10 +85,10 @@ function RadialBurst() {
   return (
     <div style={{
       position: 'absolute',
-      top: '15%',
-      right: '5%',
-      width: 500,
-      height: 500,
+      top: '12%',
+      right: '12%',
+      width: 550,
+      height: 550,
       pointerEvents: 'none',
     }}>
       <svg viewBox="0 0 400 400" style={{ width: '100%', height: '100%' }}>
