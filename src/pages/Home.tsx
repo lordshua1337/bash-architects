@@ -91,13 +91,13 @@ function RadialBurst() {
     const rad = (angle * Math.PI) / 180
     const x2 = cx + Math.cos(rad) * radius
     const y2 = cy + Math.sin(rad) * radius
-    lines.push(<line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.5" />)
+    lines.push(<line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.6" />)
   }
   return (
-    <svg viewBox="0 0 500 500" width="700" height="700" style={{ position: 'absolute', top: '40%', left: '45%', transform: 'translate(-50%, -50%)', opacity: 0.65, pointerEvents: 'none' }}>
+    <svg viewBox="0 0 500 500" width="700" height="700" style={{ position: 'absolute', top: '40%', left: '45%', transform: 'translate(-50%, -50%)', opacity: 0.7, pointerEvents: 'none' }}>
       <g>{lines}</g>
-      <circle cx={cx} cy={cy} r="5" fill="#C9978A" opacity="0.6" />
-      <circle cx={cx} cy={cy} r="2.5" fill="#D4917A" opacity="0.8" />
+      <circle cx={cx} cy={cy} r="7" fill="#C9978A" opacity="0.5" />
+      <circle cx={cx} cy={cy} r="4" fill="#D4917A" opacity="0.7" />
     </svg>
   )
 }
