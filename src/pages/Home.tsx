@@ -83,26 +83,19 @@ const FAQS = [
 
 function RadialBurst() {
   const lines = []
-  for (let i = 0; i < 90; i++) {
-    const angle = i * 4
+  for (let i = 0; i < 120; i++) {
+    const angle = i * 3
     const rad = (angle * Math.PI) / 180
-    const x2 = 500 + Math.cos(rad) * 500
-    const y2 = 500 + Math.sin(rad) * 500
-    lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#D4917A" strokeWidth="0.5" />)
+    const x2 = 500 + Math.cos(rad) * 480
+    const y2 = 500 + Math.sin(rad) * 480
+    lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#C9978A" strokeWidth="0.3" />)
   }
   return (
-    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.5 }}>
-      <g opacity="0.5">{lines}</g>
-      {/* Bright orange orb at center */}
-      <defs>
-        <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
-          <stop offset="40%" stopColor="var(--accent)" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="500" cy="500" r="40" fill="var(--accent)" opacity="0.85" />
-      <circle cx="500" cy="500" r="80" fill="url(#orbGlow)" />
+    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.6 }}>
+      <g>{lines}</g>
+      {/* Tiny pinkish dot at center */}
+      <circle cx="500" cy="500" r="6" fill="#C9978A" opacity="0.7" />
+      <circle cx="500" cy="500" r="3" fill="#D4917A" opacity="0.9" />
     </svg>
   )
 }
