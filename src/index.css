@@ -121,6 +121,13 @@ h1, h2, h3, h4, h5, h6 {
 .service-card:hover .bullet-dot {
   color: white !important;
 }
+.card-desc {
+  color: var(--text-muted);
+}
+.service-card:hover .card-desc,
+.reason-card:hover .card-desc {
+  color: rgba(255,255,255,0.85);
+}
 
 /* REASON CARDS */
 .reason-card {

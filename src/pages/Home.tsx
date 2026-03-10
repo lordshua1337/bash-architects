@@ -193,7 +193,7 @@ export default function Home() {
               <div key={i} className="service-card" style={{ borderWidth: 0, borderRight: i % 2 === 0 ? '1px solid var(--border)' : 'none', borderBottom: i < 2 ? '1px solid var(--border)' : 'none' }}>
                 <div className="icon-box" style={{ marginBottom: 24 }}>{s.icon}</div>
                 <h3 style={{ fontFamily: HEADING, fontSize: 28, marginBottom: 16, lineHeight: 1 }}>{s.title}</h3>
-                <p style={{ fontFamily: MONO, fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: 20 }}>{s.desc}</p>
+                <p className="card-desc" style={{ fontFamily: MONO, fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>{s.desc}</p>
                 <ul style={{ listStyle: 'none', marginBottom: 24 }}>
                   {s.bullets.map((b, j) => (
                     <li key={j} style={{ fontFamily: MONO, fontSize: 14, marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -247,7 +247,7 @@ export default function Home() {
               <div key={i} className="reason-card">
                 <span className="reason-number">{String(i + 1).padStart(2, '0')}</span>
                 <h3 style={{ fontFamily: HEADING, fontSize: 24, marginBottom: 12, lineHeight: 1 }}>{r.title}</h3>
-                <p style={{ fontFamily: MONO, fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.6 }}>{r.desc}</p>
+                <p className="card-desc" style={{ fontFamily: MONO, fontSize: 14, lineHeight: 1.6 }}>{r.desc}</p>
               </div>
             ))}
           </div>
