@@ -82,44 +82,44 @@ const FAQS = [
 ]
 
 function RadialBurst() {
-  const lines = []
-  const cx = 300
-  const cy = 300
-  const innerR = 12
-  const outerR = 290
-  const count = 72
-  for (let i = 0; i < count; i++) {
-    const angle = (i * 360) / count
-    const rad = (angle * Math.PI) / 180
-    const x1 = cx + Math.cos(rad) * innerR
-    const y1 = cy + Math.sin(rad) * innerR
-    const x2 = cx + Math.cos(rad) * outerR
-    const y2 = cy + Math.sin(rad) * outerR
-    lines.push(
-      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#C4917A" strokeWidth="0.8" opacity="0.45" />
-    )
-  }
   return (
-    <svg viewBox="0 0 600 600" width="600" height="600" style={{
+    <div style={{
       position: 'absolute',
-      top: '35%',
+      top: '15%',
       right: '5%',
-      transform: 'translateY(-50%)',
+      width: 500,
+      height: 500,
       pointerEvents: 'none',
     }}>
-      <g>{lines}</g>
-      {/* Glowing orb */}
-      <defs>
-        <radialGradient id="orbGlow">
-          <stop offset="0%" stopColor="#D4917A" stopOpacity="0.9" />
-          <stop offset="30%" stopColor="#C9978A" stopOpacity="0.5" />
-          <stop offset="70%" stopColor="#C9978A" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#C9978A" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx={cx} cy={cy} r="18" fill="url(#orbGlow)" />
-      <circle cx={cx} cy={cy} r="5" fill="#D4917A" opacity="0.7" />
-    </svg>
+      <svg viewBox="0 0 400 400" style={{ width: '100%', height: '100%' }}>
+        <defs>
+          <radialGradient id="orbGlow">
+            <stop offset="0%" stopColor="#D4917A" stopOpacity="0.9" />
+            <stop offset="30%" stopColor="#C9978A" stopOpacity="0.5" />
+            <stop offset="70%" stopColor="#C9978A" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#C9978A" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        {Array.from({ length: 64 }).map((_, i) => {
+          const angle = (i * 360) / 64
+          return (
+            <line
+              key={i}
+              x1="200"
+              y1="200"
+              x2="400"
+              y2="200"
+              stroke="#C4917A"
+              strokeWidth="0.8"
+              opacity="0.35"
+              transform={`rotate(${angle} 200 200)`}
+            />
+          )
+        })}
+        <circle cx="200" cy="200" r="20" fill="url(#orbGlow)" />
+        <circle cx="200" cy="200" r="5" fill="#D4917A" opacity="0.8" />
+      </svg>
+    </div>
   )
 }
 
