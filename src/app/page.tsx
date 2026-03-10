@@ -140,7 +140,7 @@ function ChatWidget() {
   return (
     <>
       {open && (
-        <div style={{ position: 'fixed', bottom: 96, right: 24, width: 380, maxHeight: 520, background: 'white', borderRadius: 12, boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', zIndex: 1000, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        <div style={{ position: 'fixed', bottom: 96, right: 24, width: 380, maxHeight: 560, background: 'var(--bg)', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', zIndex: 1000, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ background: 'var(--bg-dark)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#22C55E' }} />
@@ -149,37 +149,37 @@ function ChatWidget() {
                 <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>We&apos;re online now</div>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'white', fontSize: 20 }}>&times;</button>
+            <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'white', fontSize: 24, lineHeight: 1 }}>&times;</button>
           </div>
           <div style={{ flex: 1, padding: 24, overflowY: 'auto' }}>
             <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <span style={{ fontSize: 14, fontWeight: 700, color: 'white' }}>AI</span>
               </div>
               <div>
-                <div style={{ background: '#F5F5F5', padding: '12px 16px', borderRadius: '0 12px 12px 12px', fontSize: 15, lineHeight: 1.5 }}>
-                  Hi there! Thanks for your interest. How can we help you today?
+                <div style={{ background: 'transparent', border: '1px solid var(--border)', padding: '14px 18px', fontSize: 15, lineHeight: 1.5, fontFamily: MONO }}>
+                  Hi there! {'\uD83D\uDC4B'} Thanks for your interest. How can we help you today?
                 </div>
-                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>Just now</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 6 }}>Just now</div>
               </div>
             </div>
-            <p style={{ fontSize: 13, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.5, margin: '20px 0' }}>
+            <p style={{ fontSize: 13, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.6, margin: '24px 0' }}>
               To integrate with a live chat service like Intercom, Crisp, or Tawk.to, add your widget code to the index.html file.
             </p>
           </div>
-          <div style={{ padding: '16px 24px 20px', borderTop: '1px solid #E5E5E5' }}>
-            <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ padding: '16px 24px 20px' }}>
+            <div style={{ display: 'flex', gap: 0 }}>
               <input
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
-                style={{ flex: 1, padding: '12px 16px', border: '1px solid #DDD', borderRadius: 4, fontSize: 15, outline: 'none', fontFamily: MONO }}
+                style={{ flex: 1, padding: '14px 18px', border: '1px solid var(--border)', background: 'white', fontSize: 15, outline: 'none', fontFamily: MONO }}
               />
-              <button style={{ width: 44, height: 44, background: 'var(--accent)', border: 'none', borderRadius: 4, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
+              <button style={{ width: 52, height: 52, background: 'var(--accent)', border: '1px solid var(--accent)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2L11 13" /><path d="M22 2L15 22L11 13L2 9L22 2Z" /></svg>
               </button>
             </div>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 6 }}>Press Enter to send</p>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 8 }}>Press Enter to send</p>
           </div>
         </div>
       )}
