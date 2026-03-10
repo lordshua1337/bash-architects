@@ -116,8 +116,8 @@ function RadialBurst() {
             />
           )
         })}
-        <circle cx="200" cy="200" r="24" fill="url(#orbGlow)" />
-        <circle cx="200" cy="200" r="5" fill="#FF5733" opacity="0.75" />
+        <circle cx="200" cy="200" r="12" fill="url(#orbGlow)" />
+        <circle cx="200" cy="200" r="3" fill="#FF5733" opacity="0.75" />
       </svg>
     </div>
   )
