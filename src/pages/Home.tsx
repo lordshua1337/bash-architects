@@ -122,16 +122,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLATFORMS */}
+      {/* PLATFORMS + STATS */}
       <section style={{ background: 'var(--bg-dark)', padding: '80px 24px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <p style={{ fontFamily: MONO, fontSize: 14, color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: 2 }}>INTEGRATING WITH</p>
             <h3 style={{ fontFamily: HEADING, fontSize: 32, color: 'white', lineHeight: 1 }}>THE PLATFORMS YOU<br /><span style={{ color: 'var(--accent)' }}>ALREADY USE</span></h3>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 8 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: 8, marginBottom: 80 }}>
             {PLATFORMS.map((p) => (
               <div key={p} className="platform-card"><span style={{ fontFamily: MONO, fontSize: 11, fontWeight: 700, textTransform: 'uppercase' }}>{p}</span></div>
+            ))}
+          </div>
+          {/* Stats */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, textAlign: 'center', paddingTop: 40 }}>
+            {[
+              { num: '500+', label: 'INTEGRATIONS BUILT' },
+              { num: '2M+', label: 'API CALLS MONTHLY' },
+              { num: '98%', label: 'UPTIME GUARANTEE' },
+              { num: '24/7', label: 'SUPPORT AVAILABLE' },
+            ].map((stat) => (
+              <div key={stat.num}>
+                <div style={{ fontFamily: HEADING, fontSize: 80, fontWeight: 900, color: 'var(--accent)', lineHeight: 1, marginBottom: 8 }}>{stat.num}</div>
+                <p style={{ fontFamily: HEADING, fontSize: 14, color: 'white', textTransform: 'uppercase', letterSpacing: 1 }}>{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -339,15 +353,51 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: 'var(--accent)', padding: '128px 24px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: HEADING, fontSize: 'clamp(36px, 5vw, 56px)', color: 'white', marginBottom: 16, lineHeight: 0.85 }}>
-            LET'S FIGURE IT<br /><span style={{ color: 'black' }}>OUT TOGETHER</span>
+      <section style={{ background: 'var(--bg)', padding: '128px 24px', position: 'relative', overflow: 'hidden' }}>
+        {/* Diagonal lines - left */}
+        <svg style={{ position: 'absolute', top: 40, left: -20, width: 200, height: 200 }} viewBox="0 0 200 200">
+          <line x1="0" y1="80" x2="150" y2="200" stroke="black" strokeWidth="3" />
+          <line x1="0" y1="100" x2="150" y2="220" stroke="black" strokeWidth="3" />
+          <line x1="0" y1="120" x2="150" y2="240" stroke="black" strokeWidth="3" />
+        </svg>
+        <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <h2 style={{ fontFamily: HEADING, fontSize: 'clamp(48px, 7vw, 80px)', marginBottom: 24, lineHeight: 0.85 }}>
+            LET'S FIGURE IT<br /><span style={{ color: 'var(--accent)' }}>OUT TOGETHER</span>
           </h2>
-          <p style={{ fontFamily: MONO, fontSize: 16, color: 'rgba(255,255,255,0.9)', maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.6 }}>
+          <div className="divider" style={{ margin: '0 auto 24px' }} />
+          <p style={{ fontFamily: MONO, fontSize: 16, maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.6 }}>
             You have an idea, a problem, or a vision. We'll work with you to architect the technical solution—and make sure your business can run on it.
           </p>
-          <Link to="/contact" className="btn-primary" style={{ background: 'black' }}>GET IN TOUCH <ArrowRight size={16} /></Link>
+          <Link to="/contact" className="btn-primary">GET IN TOUCH <ArrowRight size={16} /></Link>
+        </div>
+      </section>
+
+      {/* BOTTOM STATS */}
+      <section style={{ background: 'var(--bg)', padding: '80px 24px 128px', position: 'relative', overflow: 'hidden' }}>
+        {/* Diagonal lines - right */}
+        <svg style={{ position: 'absolute', bottom: 40, right: -20, width: 200, height: 200 }} viewBox="0 0 200 200">
+          <line x1="50" y1="0" x2="200" y2="120" stroke="black" strokeWidth="3" />
+          <line x1="50" y1="20" x2="200" y2="140" stroke="black" strokeWidth="3" />
+          <line x1="50" y1="40" x2="200" y2="160" stroke="black" strokeWidth="3" />
+        </svg>
+        <div style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 48, textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <div>
+            <div style={{ fontFamily: HEADING, fontSize: 80, fontWeight: 900, color: 'var(--accent)', lineHeight: 1, marginBottom: 8 }}>100%</div>
+            <p style={{ fontFamily: HEADING, fontSize: 14, textTransform: 'uppercase', letterSpacing: 1 }}>CLIENT SATISFACTION</p>
+          </div>
+          <div>
+            <div style={{ fontFamily: HEADING, fontSize: 80, fontWeight: 900, color: 'var(--accent)', lineHeight: 1, marginBottom: 8 }}>50+</div>
+            <p style={{ fontFamily: HEADING, fontSize: 14, textTransform: 'uppercase', letterSpacing: 1 }}>BUSINESSES TRANSFORMED</p>
+          </div>
+          <div>
+            <div style={{ fontFamily: HEADING, fontSize: 80, fontWeight: 900, color: 'var(--accent)', lineHeight: 1, marginBottom: 8, display: 'flex', justifyContent: 'center' }}>
+              <svg width="80" height="50" viewBox="0 0 80 50">
+                <circle cx="25" cy="25" r="18" fill="none" stroke="var(--accent)" strokeWidth="4" />
+                <circle cx="55" cy="25" r="18" fill="none" stroke="var(--accent)" strokeWidth="4" />
+              </svg>
+            </div>
+            <p style={{ fontFamily: HEADING, fontSize: 14, textTransform: 'uppercase', letterSpacing: 1 }}>WAYS TO BRING IT TO LIFE</p>
+          </div>
         </div>
       </section>
     </>
