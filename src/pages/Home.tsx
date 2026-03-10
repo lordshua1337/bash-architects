@@ -91,7 +91,7 @@ function RadialBurst() {
     lines.push(<line key={i} x1="500" y1="500" x2={x2} y2={y2} stroke="#C4A070" strokeWidth="1" />)
   }
   return (
-    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '120%', height: '120%', opacity: 0.65 }}>
+    <svg viewBox="0 0 1000 1000" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', opacity: 0.65 }}>
       <g opacity="0.6">{lines}</g>
     </svg>
   )
@@ -105,14 +105,17 @@ export default function Home() {
       <Helmet><title>BASH Architects | We'll Figure Out How to Bring It to Life</title></Helmet>
 
       {/* HERO */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', padding: '128px 24px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '128px 24px 128px 64px' }}>
         <RadialBurst />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, width: '100%' }}>
-          <p style={{ fontFamily: MONO, fontSize: 14, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 24, color: 'var(--text-muted)' }}>AI STRATEGY & IMPLEMENTATION</p>
-          <h1 style={{ fontFamily: HEADING, fontSize: 'clamp(48px, 8vw, 96px)', lineHeight: 0.85, marginBottom: 32 }}>
+          <div style={{ display: 'inline-block', background: 'var(--bg-dark)', padding: '12px 24px', marginBottom: 32 }}>
+            <p style={{ fontFamily: MONO, fontSize: 14, textTransform: 'uppercase', letterSpacing: 2, color: 'white', margin: 0 }}>AI STRATEGY & IMPLEMENTATION</p>
+          </div>
+          <h1 style={{ fontFamily: HEADING, fontSize: 'clamp(72px, 12vw, 160px)', lineHeight: 0.85, marginBottom: 48 }}>
             WE'LL FIGURE<br />OUT HOW TO<br /><span style={{ color: 'var(--accent)' }}>BRING IT TO LIFE</span>
           </h1>
-          <p style={{ fontFamily: MONO, fontSize: 18, maxWidth: 600, lineHeight: 1.6, marginBottom: 40 }}>
+          <div className="divider" style={{ width: 80, marginBottom: 32 }} />
+          <p style={{ fontFamily: MONO, fontSize: 20, maxWidth: 600, lineHeight: 1.6, marginBottom: 40 }}>
             Not just building tools—architecting the workflows, APIs, and integrations that make your business run. With or without us.
           </p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
