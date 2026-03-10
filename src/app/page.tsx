@@ -133,6 +133,71 @@ function RadialBurst() {
   )
 }
 
+function ChatWidget() {
+  const [open, setOpen] = useState(false)
+  const [message, setMessage] = useState('')
+
+  return (
+    <>
+      {open && (
+        <div style={{ position: 'fixed', bottom: 96, right: 24, width: 380, maxHeight: 520, background: 'white', borderRadius: 12, boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', zIndex: 1000, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+          <div style={{ background: 'var(--bg-dark)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#22C55E' }} />
+              <div>
+                <div style={{ fontFamily: HEADING, fontWeight: 900, fontSize: 16, color: 'white', textTransform: 'uppercase' }}>BASH Architects</div>
+                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>We&apos;re online now</div>
+              </div>
+            </div>
+            <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'white', fontSize: 20 }}>&times;</button>
+          </div>
+          <div style={{ flex: 1, padding: 24, overflowY: 'auto' }}>
+            <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontSize: 14, fontWeight: 700, color: 'white' }}>AI</span>
+              </div>
+              <div>
+                <div style={{ background: '#F5F5F5', padding: '12px 16px', borderRadius: '0 12px 12px 12px', fontSize: 15, lineHeight: 1.5 }}>
+                  Hi there! Thanks for your interest. How can we help you today?
+                </div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>Just now</div>
+              </div>
+            </div>
+            <p style={{ fontSize: 13, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.5, margin: '20px 0' }}>
+              To integrate with a live chat service like Intercom, Crisp, or Tawk.to, add your widget code to the index.html file.
+            </p>
+          </div>
+          <div style={{ padding: '16px 24px 20px', borderTop: '1px solid #E5E5E5' }}>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <input
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type your message..."
+                style={{ flex: 1, padding: '12px 16px', border: '1px solid #DDD', borderRadius: 4, fontSize: 15, outline: 'none', fontFamily: MONO }}
+              />
+              <button style={{ width: 44, height: 44, background: 'var(--accent)', border: 'none', borderRadius: 4, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
+              </button>
+            </div>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 6 }}>Press Enter to send</p>
+          </div>
+        </div>
+      )}
+      <button
+        onClick={() => setOpen(!open)}
+        className="chat-fab"
+        style={{ position: 'fixed', bottom: 24, right: 24, width: 64, height: 64, borderRadius: '50%', background: open ? 'var(--accent)' : 'var(--accent)', border: 'none', cursor: 'pointer', boxShadow: '0 8px 30px rgba(0,0,0,0.3)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s cubic-bezier(0.4, 0, 0.2, 1)' }}
+      >
+        {open ? (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+        ) : (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+        )}
+      </button>
+    </>
+  )
+}
+
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(0)
   const [mobileNav, setMobileNav] = useState(false)
@@ -229,7 +294,7 @@ export default function Home() {
           <p style={{ maxWidth: 600, fontSize: 20, lineHeight: '28px', color: '#4A4540', marginBottom: 60 }}>
             We don&apos;t just build&#8202;&#8212;&#8202;we architect the systems that power your business, whether we&apos;re the ones building it or not.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
             {SERVICES.map(s => (
               <div key={s.title} className="service-card">
                 <div className="icon-box" style={{ marginBottom: 24, color: '#FF5733' }}>
@@ -239,8 +304,8 @@ export default function Home() {
                 <p style={{ fontSize: 18, lineHeight: '29.25px', color: '#4A4540', marginBottom: 24 }}>{s.desc}</p>
                 <ul style={{ listStyle: 'none', marginBottom: 32 }}>
                   {s.bullets.map(b => (
-                    <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, fontSize: 16 }}>
-                      <span className="bullet-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', flexShrink: 0, transition: 'background 0.15s' }} />
+                    <li key={b} style={{ display: 'flex', alignItems: 'start', gap: 12, marginBottom: 10, fontSize: 16 }}>
+                      <span className="bullet-dot" style={{ color: 'var(--accent)', fontSize: 14, flexShrink: 0, transition: 'color 0.15s' }}>{'\u25AA'}</span>
                       {b}
                     </li>
                   ))}
@@ -490,6 +555,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <ChatWidget />
     </>
   )
 }

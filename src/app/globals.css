@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card:hover .bullet-dot {
-  background: white;
+  color: white !important;
 }
 
 /* REASON CARDS -- hover: bg orange, border orange, text white */
@@ -431,6 +431,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-bottom-link:hover {
   color: var(--accent);
+}
+
+/* CHAT FAB -- hover: bg black */
+.chat-fab:hover {
+  background: black !important;
+}
+
+@media (max-width: 768px) {
+  .service-grid-2col {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 1024px) {
