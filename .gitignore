@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .next
 .vercel
+
+# Environment variables
+.env*
+.env.local
+.env.production
